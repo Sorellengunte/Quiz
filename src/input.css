@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+
+
+@layer components{
+    .btn-primary {
+        @apply py-2 px-4 bg-red-500 rounded-full hover:bg-red-600 text-white
+    }
+    .btn-secondary{
+      @apply bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition
+    }
+    .links-desktop{
+      @apply text-gray-800 hover:text-red-500 font-semibold
+    }
+    .links-mobile{
+      @apply block text-gray-800 font-semibold hover:bg-gray-200 rounded px-3 py-2
+    }
+    .h1{
+      @apply text-5xl md:text-6xl font-extrabold text-black leading-tight uppercase font-bold
+    }
+    .h2{
+      @apply text-5xl md:text-6xl font-extrabold text-red-600 leading-tight uppercase font-bold
+    }
+    .h3{
+      @apply text-xl font-bold mb-2
+    }
+    .input{
+      @apply w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500
+    }
+    .p{
+      @apply text-gray-600
+    }
+    
+}
+
+
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito-Light.ttf") format("truetype");
+  font-weight: 300;
+}
