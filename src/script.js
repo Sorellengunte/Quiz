@@ -51,7 +51,7 @@ function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
-    showQuestion();
+    showQuestion(); // affiche la premiere questions
 }
 
 function showQuestion(){
@@ -60,21 +60,20 @@ function showQuestion(){
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
 
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question; //affiche le texte de la questions
 
     currentQuestion.reponses.forEach(reponse => {
         const button = document.createElement("button");
         button.innerHTML = reponse.text;
-        button.className =
-            "text-black py-2 px-4 rounded-lg bg-gray-200 hover:bg-gray-300 transition";
+        button.className = "text-black py-2 px-4 rounded-lg bg-gray-200 hover:bg-gray-300 transition";
 
-        button.dataset.correct = reponse.correct;
+        button.dataset.correct = reponse.correct; //pour stocker la vrai reponse
         answerButtons.appendChild(button);
 
         button.addEventListener("click", selectAnswer);
     });
 }
-
+// cache le bouuton next lorsq'on n'a pas repondu en supprimants tous ses enfants
 function resetState(){
     nextButton.style.display = "none";
     while (answerButtons.firstChild) {
@@ -107,11 +106,11 @@ function selectAnswer(e){
   
 function showScore(){
     resetState();
-    questionElement.innerHTML = `Ton score : ${score} / ${questions.length}`;
+    questionElement.innerHTML = `Ton score est de : ${score} / ${questions.length}`;
     nextButton.innerHTML = "Recommencer";
     nextButton.style.display = "block";
 }
-
+// incremente l'indice de la question
 function handleNextButton(){
     currentQuestionIndex++;
     if(currentQuestionIndex < questions.length){
